@@ -56,6 +56,8 @@ Route::delete('/animals/{id}', [AnimalController::class,'destroy']);
 // =========
 
 // Pertemuan 5
+// Method Get
 Route::get('/students', [StudentController::class,'index']);
 
-Route::get('/students', [StudentController::class,'store']);
+// Method Post
+Route::post('/students', [StudentController::class,'store']);

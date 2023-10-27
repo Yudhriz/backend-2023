@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -12,7 +13,7 @@ class StudentController extends Controller
         $students = Student::all();
 
         $data = [
-            'message'=> 'Get all Students',
+            'message' => 'Get all students',
             'data' => $students,
         ];
 
@@ -31,7 +32,7 @@ class StudentController extends Controller
         $students = Student::create($input);
 
         $data = [
-            'message'=> 'Student is created succesfully',
+            'message' => 'Student is created successfully',
             'data' => $students,
         ];
 
