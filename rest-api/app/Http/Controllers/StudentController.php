@@ -25,7 +25,7 @@ class StudentController extends Controller
             'nama' => $request->nama,
             'nim' => $request->nim,
             'email' => $request->email,
-            'jurusan '  => $request->jurusan
+            'jurusan' => $request->jurusan
         ];
 
         $students = Student::create($input);

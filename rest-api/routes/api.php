@@ -57,4 +57,5 @@ Route::delete('/animals/{id}', [AnimalController::class,'destroy']);
 
 // Pertemuan 5
 Route::get('/students', [StudentController::class,'index']);
+
 Route::get('/students', [StudentController::class,'store']);
