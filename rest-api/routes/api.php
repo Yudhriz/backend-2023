@@ -43,27 +43,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Percobaan Kedua
 // method Get
-Route::get('/animals', [AnimalController::class,'index']);
+Route::get('/animals', [AnimalController::class, 'index']);
 
 // method Post
-Route::post('/animals', [AnimalController::class,'store']);
+Route::post('/animals', [AnimalController::class, 'store']);
 
 // method Put
-Route::put('/animals/{id}', [AnimalController::class,'update']);
+Route::put('/animals/{id}', [AnimalController::class, 'update']);
 
 // method Delete
-Route::delete('/animals/{id}', [AnimalController::class,'destroy']);
+Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
 // =========
 
 // Pertemuan 5
 // Method Get
-Route::get('/students', [StudentController::class,'index']);
+Route::get('/students', [StudentController::class, 'index']);
 
 // Method Post
-Route::post('/students', [StudentController::class,'store']);
+Route::post('/students', [StudentController::class, 'store']);
 
 // Method Put
-Route::put('/students/{id}', [StudentController::class,'update']);
+Route::put('/students/{id}', [StudentController::class, 'update']);
 
 // Method Delete
-Route::delete('/students/{id}', [StudentController::class,'destroy']);
+Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+
+// Get Detail Resource
+Route::get('/students/{id}', [StudentController::class, 'show']);
