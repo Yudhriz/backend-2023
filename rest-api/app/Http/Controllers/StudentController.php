@@ -58,13 +58,6 @@ class StudentController extends Controller
     {
         $students = Student::find($id);
 
-        $request->validate([
-            'nama' => 'required',
-            'nim' => 'required',
-            'email' => 'required|email',
-            'jurusan' => 'required'
-        ]);
-
         if ($students) {
             $input = [
                 'nama' => $request->nama ?? $students->nama,
