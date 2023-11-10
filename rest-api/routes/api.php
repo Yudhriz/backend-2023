@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,43 +20,8 @@ use App\Http\Controllers\StudentController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// ==== Pertemuan 4 ====
-// Percobaan Pertama
-// // method Get
-// Route::get('/animals', function() {
-//     return "Menampilkan seluruh data animals";
-// });
 
-// // method Post
-// Route::post('/animals', function() {
-//     return "Menambahkan hewan baru";
-// });
-
-// // method Put
-// Route::put('/animals/{id}', function($id) {
-//     return "Mengupdate data hewan id $id";
-// });
-
-// // method Delete
-// Route::delete('/animals/{id}', function($id) {
-//     return "Menghapus data hewan id $id";
-// });
-
-// Percobaan Kedua
-// method Get
-Route::get('/animals', [AnimalController::class, 'index']);
-
-// method Post
-Route::post('/animals', [AnimalController::class, 'store']);
-
-// method Put
-Route::put('/animals/{id}', [AnimalController::class, 'update']);
-
-// method Delete
-Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
-// =========
-
-// Pertemuan 5
+Route::middleware(['auth:sanctum'])->group(function () {
 // Method Get
 Route::get('/students', [StudentController::class, 'index']);
 
@@ -70,3 +36,7 @@ Route::delete('/students/{id}', [StudentController::class, 'destroy']);
 
 // Get Detail Resource
 Route::get('/students/{id}', [StudentController::class, 'show']);
+});
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
