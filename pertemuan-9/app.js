@@ -6,7 +6,7 @@
  * @hint - Gunakan Destructing Object
  */
 
-var importHere = "";
+const { index, store, update, destroy } = require("./Controller/FruitController.js");
 
 /**
  * NOTES:
