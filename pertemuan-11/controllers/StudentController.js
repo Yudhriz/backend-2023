@@ -1,12 +1,11 @@
-// TODO 3: Import data students dari folder data/students.js
-const Students = require("../data/students");
+const students = require("../data/students");
 
 // Membuat class StudentController
 class StudentController {
   index(req, res) {
     const data = {
       message: "Menampilkan semua students",
-      data: [],
+      data: students,
     };
 
     res.json(data);
@@ -14,10 +13,11 @@ class StudentController {
 
   store(req, res) {
     const { nama } = req.body;
+    students.push(nama);
 
     const data = {
-      message: "Menambahkan student baru: $(nama)",
-      data: [],
+      message: `Menambahkan student baru: ${nama}`,
+      data: students,
     };
 
     res.json(data);
@@ -26,10 +26,11 @@ class StudentController {
   update(req, res) {
     const { id } = req.params;
     const { nama } = req.body;
+    students[id] = nama;
 
     const data = {
-      message: "Mengubah data students id $(id)",
-      data: [],
+      message: `Mengubah data students id ${id}, nama: ${nama}`,
+      data: students,
     };
 
     res.json(data);
@@ -37,10 +38,11 @@ class StudentController {
 
   destroy(req, res) {
     const { id } = req.params;
+    students.splice(id, 1);
 
     const data = {
-      message: "Menghapus data students id $(id)",
-      data: [],
+      message: `Menghapus data students id ${id}`,
+      data: students,
     };
 
     res.json(data);
