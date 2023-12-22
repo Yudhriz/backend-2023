@@ -1,17 +1,23 @@
-// impoert mysql
+// import mysql
 const mysql = require("mysql");
+
+// import dotenv
+require("dotenv").config();
+
+// destructuring object process env
+const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_DATABASE } = process.env;
 
 /**
  * Membu;at koneksi database menggunakan method createConnection
  * Method menerima parameter object: host, user, password, dan database
  */
 
-const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  port: 3309,
-  database: "express_rest_api",
+const db = mysql.createConnection({
+  host: DB_HOST,
+  port: DB_PORT,
+  user: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DB_DATABASE,
 });
 
 /**
@@ -21,12 +27,11 @@ const conn = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.log("Error connecting database" + err.stack);
-    return;
+    console.log("Error connecting database:", err.stack);
   } else {
-    console.log("Connected to database ...");
-    return;
+    console.log("Connected to database!");
   }
 });
 
+// Export the connection object
 module.exports = db;
