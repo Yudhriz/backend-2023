@@ -63,13 +63,13 @@ class StudentController {
         data: students,
       };
 
-      res.status(200).json(data);
+      return res.status(200).json(data);
     } else {
       const data = {
         message: `Data student id ${id} tidak ditemukan`,
       };
 
-      res.status(404).json(data);
+      return res.status(404).json(data);
     }
   }
 
@@ -84,13 +84,13 @@ class StudentController {
         data: student,
       };
 
-      res.status(200).json(data);
+      return res.status(200).json(data);
     } else {
       const data = {
         message: `Data student id ${id} tidak ditemukan`,
       };
 
-      res.status(404).json(data);
+      return res.status(404).json(data);
     }
   }
 
@@ -104,13 +104,13 @@ class StudentController {
         data: student,
       };
 
-      res.status(200).json(data);
+      return res.status(200).json(data);
     } else {
       const data = {
         message: `Data student id ${id} tidak ditemukan`,
       };
 
-      res.status(404).json(data);
+      return res.status(404).json(data);
     }
   }
 }
