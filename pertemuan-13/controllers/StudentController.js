@@ -109,7 +109,6 @@ class StudentController {
       const data = {
         message: `Data student id ${id} tidak ditemukan`,
       };
-
       return res.status(404).json(data);
     }
   }
